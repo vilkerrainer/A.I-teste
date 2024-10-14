@@ -13,6 +13,8 @@ from playsound import playsound
 warnings.filterwarnings("ignore")
 dotenv.load_dotenv()
 
+#Tranformando audio em texto
+
 fs = 44100 
 seconds = 5  
 
@@ -37,13 +39,20 @@ model = whisper.load_model("base")
 result = model.transcribe(audio)
 resultado = (result["text"])
 
+with open('log.txt', 'a') as log_file:  
+    log_file.write(f'Pergunta:{resultado}' + '\n')  # Log da pergunta
+
+# API do Gemini
+
 genai.configure(api_key=os.environ["API_KEY"])
 
 model = genai.GenerativeModel(model_name="gemini-1.5-flash")
 response = model.generate_content(f'{resultado} mas em formato de texto sem nada de formatção como bold, *, nem nada, só a resposta ')
-print(response.text)
-
+with open('log.txt', 'a') as log_file:  
+    log_file.write(f'Resposta: {response.text}' + '\n')  # Log da resposta
 texto = response.text
+
+#Tranformando texto em audio
 
 tts = gTTS(text=texto, lang='pt', slow=False)
 
@@ -52,5 +61,5 @@ tts.save(arquivo_mp3)
 
 print(f"Arquivo de áudio salvo como '{arquivo_mp3}'.")
 
-sleep(5)
+sleep(3)
 playsound(arquivo_mp3)
