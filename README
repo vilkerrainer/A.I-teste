@@ -24,6 +24,7 @@ Este projeto utiliza diversas bibliotecas do Python para gravar áudio, transcre
 ## Pré-requisitos
 
 - Python 3.x
+- FFmpeg: Necessário para manipulação de áudio com `pydub`. Você pode instalá-lo a partir do site oficial [FFmpeg](https://ffmpeg.org/download.html) ou usar um gerenciador de pacotes.
 - Instalação das bibliotecas necessárias, que podem ser instaladas usando o arquivo `requirements.txt`:
 
 ```bash
