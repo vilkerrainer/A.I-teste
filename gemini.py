@@ -47,7 +47,7 @@ with open('log.txt', 'a') as log_file:
 genai.configure(api_key=os.environ["API_KEY"])
 
 model = genai.GenerativeModel(model_name="gemini-1.5-flash")
-response = model.generate_content(f'{resultado} mas em formato de texto sem nada de formatção como bold, *, nem nada, só a resposta ')
+response = model.generate_content(f'{resultado} mas em formato de texto sem nada de formatção como bold, *, nem nada, só a resposta e sempre em portguês brasileiro')
 with open('log.txt', 'a') as log_file:  
     log_file.write(f'Resposta: {response.text}' + '\n')  # Log da resposta
 texto = response.text
