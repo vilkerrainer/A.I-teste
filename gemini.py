@@ -9,7 +9,9 @@ from pydub import AudioSegment
 from time import sleep
 from gtts import gTTS
 from playsound import playsound
+import pyttsx3
 
+engine = pyttsx3.init()
 warnings.filterwarnings("ignore")
 dotenv.load_dotenv()
 
@@ -44,11 +46,14 @@ with open('log.txt', 'a') as log_file:
 
 # API do Gemini
 
+with open('prompt.txt', 'r', encoding='utf-8') as arquivo:
+    prompt = arquivo.read()
+
 genai.configure(api_key=os.environ["API_KEY"])
 
 model = genai.GenerativeModel(model_name="gemini-1.5-flash")
-response = model.generate_content(f'{resultado} mas em formato de texto sem nada de formatção como bold, *, nem nada, só a resposta e sempre em portguês brasileiro')
-with open('log.txt', 'a') as log_file:  
+response = model.generate_content(f'use os prompt {prompt} para responder {resultado}')
+with open('log.txt', 'a', encoding='utf-8') as log_file:
     log_file.write(f'Resposta: {response.text}' + '\n')  # Log da resposta
 texto = response.text
 
@@ -61,5 +66,13 @@ tts.save(arquivo_mp3)
 
 print(f"Arquivo de áudio salvo como '{arquivo_mp3}'.")
 
+rate = engine.getProperty('rate')
+engine.setProperty('rate', rate - 0)
+
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[0].id)
+
 sleep(3)
-playsound(arquivo_mp3)
+
+engine.say(texto)
+engine.runAndWait()
