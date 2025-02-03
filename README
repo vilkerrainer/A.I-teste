@@ -1,58 +1,58 @@
-# Projeto de I.A de Conversa com Python
+Projeto de I.A de Conversa com Python
 
 Este projeto utiliza diversas bibliotecas do Python para criar um sistema de conversação com IA. Ele grava áudio do microfone, transcreve o áudio em texto, gera uma resposta usando a API de IA generativa do Google (Gemini) e converte a resposta em um arquivo de áudio para reprodução.
 
 
-## Funcionalidades
+Funcionalidades
 
 O projeto é dividido nas seguintes etapas:
 
-1. **Gravação de Áudio**:
+1. Gravação de Áudio:
    - O programa grava áudio do microfone por 5 segundos e salva como um arquivo WAV.
 
-2. **Transcrição de Áudio**:
+2. Transcrição de Áudio:
    - O áudio gravado é transcrito para texto usando a biblioteca `SpeechRecognition`.
 
-3. **Geração de Resposta com IA**:
+3. Geração de Resposta com IA:
    - O texto transcrito é enviado para a API de IA generativa do Google (Gemini), que gera uma resposta em texto.
 
-4. **Conversão de Texto para Áudio**:
+4. Conversão de Texto para Áudio:
    - A resposta gerada é convertida em um arquivo de áudio MP3 usando a biblioteca `gTTS`.
 
-5. **Reprodução de Áudio**:
+5. Reprodução de Áudio:
    - O arquivo de áudio MP3 é reproduzido automaticamente usando a biblioteca `playsound`.
 
 
-## Tecnologias Utilizadas
+Tecnologias Utilizadas
 
-- **google.generativeai**: Para integração com a API de IA generativa do Google (Gemini).
-- **python-dotenv**: Para gerenciar variáveis de ambiente, como a chave da API.
-- **speech_recognition**: Para transcrição de áudio em texto.
-- **sounddevice**: Para gravação de áudio via microfone.
-- **scipy**: Para manipulação e gravação de áudio.
-- **gTTS**: Para conversão de texto em fala (arquivos MP3).
-- **playsound**: Para reprodução de arquivos de áudio.
-- **pyttsx3**: Para reprodução de áudio diretamente no sistema (opcional).
+- google.generativeai: Para integração com a API de IA generativa do Google (Gemini).
+- python-dotenv: Para gerenciar variáveis de ambiente, como a chave da API.
+- speech_recognition: Para transcrição de áudio em texto.
+- sounddevice: Para gravação de áudio via microfone.
+- scipy: Para manipulação e gravação de áudio.
+- gTTS: Para conversão de texto em fala (arquivos MP3).
+- playsound: Para reprodução de arquivos de áudio.
+- pyttsx3: Para reprodução de áudio diretamente no sistema (opcional).
 
 
-## Pré-requisitos
+Pré-requisitos
 
-### 1. **Python 3.x**
+1. Python 3.x
    - Certifique-se de ter o Python 3.x instalado. Você pode baixá-lo em [python.org](https://www.python.org/).
 
-### 2. **Instalação das Bibliotecas**
+2. Instalação das Bibliotecas
    - Instale as bibliotecas necessárias usando o arquivo `requirements.txt`:
      ```bash
      pip install -r requirements.txt
      ```
 
-### 3. **Chave da API do Google Gemini**
+3. Chave da API do Google Gemin
    - Obtenha uma chave de API do Google Gemini e armazene-a em um arquivo `.env` na raiz do projeto:
      ```plaintext
      API_KEY=sua_chave_aqui
      ```
 
-## Como Executar o Projeto
+Como Executar o Projeto
 
 1. Clone o repositório ou baixe os arquivos do projeto.
 2. Crie um arquivo `.env` na raiz do projeto e adicione sua chave da API do Google Gemini:
@@ -65,12 +65,12 @@ O projeto é dividido nas seguintes etapas:
    ```
 4. Execute o script Python:
    ```bash
-   python seu_script.py
+   python main.py
    ```
 5. Fale algo durante a gravação. O programa transcreverá o áudio, gerará uma resposta usando a API do Gemini e reproduzirá a resposta em áudio.
 
 
-## Exemplo de Uso
+Exemplo de Uso
 
 1. O programa inicia e exibe: `"Gravando..."`.
 2. Fale algo no microfone. Após 5 segundos, ele exibe: `"Gravação finalizada."`.
@@ -79,7 +79,7 @@ O projeto é dividido nas seguintes etapas:
 5. A resposta é convertida em áudio e reproduzida automaticamente.
 
 
-## Contato
+Contato
 
 Se você tiver dúvidas ou sugestões, entre em contato:
 
@@ -88,7 +88,7 @@ Se você tiver dúvidas ou sugestões, entre em contato:
 - **GitHub**: [vilkerrainer1](https://github.com/vilkerrainer1)
 
 
-## Agradecimentos
+Agradecimentos
 
 - À equipe do Google por disponibilizar a API Gemini.
 - Aos mantenedores das bibliotecas Python utilizadas neste projeto.
