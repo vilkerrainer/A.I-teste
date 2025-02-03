@@ -42,31 +42,25 @@ Pré-requisitos
 
 2. Instalação das Bibliotecas
    - Instale as bibliotecas necessárias usando o arquivo `requirements.txt`:
-     ```bash
-     pip install -r requirements.txt
-     ```
+     >> pip install -r requirements.txt
 
 3. Chave da API do Google Gemin
    - Obtenha uma chave de API do Google Gemini e armazene-a em um arquivo `.env` na raiz do projeto:
-     ```plaintext
      API_KEY=sua_chave_aqui
-     ```
+
 
 Como Executar o Projeto
 
 1. Clone o repositório ou baixe os arquivos do projeto.
 2. Crie um arquivo `.env` na raiz do projeto e adicione sua chave da API do Google Gemini:
-   ```plaintext
    API_KEY=sua_chave_aqui
-   ```
+   
 3. Instale as dependências:
-   ```bash
-   pip install -r requirements.txt
-   ```
+   >> pip install -r requirements.txt
+   
 4. Execute o script Python:
-   ```bash
-   python main.py
-   ```
+   >> python main.py
+
 5. Fale algo durante a gravação. O programa transcreverá o áudio, gerará uma resposta usando a API do Gemini e reproduzirá a resposta em áudio.
 
 
@@ -83,9 +77,9 @@ Contato
 
 Se você tiver dúvidas ou sugestões, entre em contato:
 
-- **Nome**: [Vilker Rainer]
-- **E-mail**: [vilkerrainer1@gmail.com]
-- **GitHub**: [vilkerrainer1](https://github.com/vilkerrainer1)
+- Nome: [Vilker Rainer]
+- E-mail: [vilkerrainer1@gmail.com]
+- GitHub: [vilkerrainer1](https://github.com/vilkerrainer1)
 
 
 Agradecimentos
