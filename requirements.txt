@@ -1,8 +1,0 @@
-google-generativeai
-python-dotenv
-whisper
-sounddevice
-scipy
-pydub
-gTTS
-playsound==1.2.2

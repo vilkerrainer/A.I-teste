@@ -1,78 +1,49 @@
-import google.generativeai as genai
 import os
 import dotenv
-import whisper
-import warnings
 import sounddevice as sd
 from scipy.io.wavfile import write
-from pydub import AudioSegment
 from time import sleep
 from gtts import gTTS
+import speech_recognition as sr
 from playsound import playsound
-import pyttsx3
 
-engine = pyttsx3.init()
-warnings.filterwarnings("ignore")
+
 dotenv.load_dotenv()
+recognizer = sr.Recognizer()
 
-#Tranformando audio em texto
+def main():
+    try:
+        # Gravar áudio
+        print("Gravando...")
+        fs = 44100
+        audio_data = sd.rec(int(5 * fs), samplerate=fs, channels=1, dtype='int16')
+        sd.wait()
+        write("meu_audio.wav", fs, audio_data)
+        print("Gravação finalizada.")
 
-fs = 44100 
-seconds = 5  
+        # Transcrever áudio
+        sleep(2)
+        with sr.AudioFile("meu_audio.wav") as source:
+            audio = recognizer.record(source)
+        pergunta = recognizer.recognize_google(audio, language="pt-BR")
+        print(f"Pergunta: {pergunta}")
 
+        # Gerar resposta com Gemini
+        import google.generativeai as genai
+        genai.configure(api_key=os.environ["API_KEY"])
+        model = genai.GenerativeModel("gemini-1.5-flash")
+        with open('prompt.txt', 'r', encoding='utf-8') as f:
+            prompt = f.read()
+        resposta = model.generate_content(f'{prompt} {pergunta}').text
+        print(f"Resposta: {resposta}")
+        with open('log.txt', 'a', encoding='utf-8') as f:
+            f.write(f'Pergunta: {pergunta} \nResposta: {resposta}')
+            
 
-print("Gravando...")
-audio_data = sd.rec(int(seconds * fs), samplerate=fs, channels=1)
-sd.wait()
-print("Gravação finalizada.")
+        # Converter resposta em áudio e reproduzir
+        tts = gTTS(text=resposta, lang='pt', slow=False)
+        tts.save("resposta.mp3")
+        playsound("resposta.mp3")
 
-wav_file = "meu_audio.wav"
-write(wav_file, fs, audio_data)
-
-mp3_file = "meu_audio.mp3"
-audio = AudioSegment.from_wav(wav_file)
-audio.export(mp3_file, format="mp3")
-
-sleep(5)
-
-audio = "meu_audio.mp3"
-
-model = whisper.load_model("base")
-result = model.transcribe(audio)
-resultado = (result["text"])
-
-with open('log.txt', 'a') as log_file:  
-    log_file.write(f'Pergunta:{resultado}' + '\n')  # Log da pergunta
-
-# API do Gemini
-
-with open('prompt.txt', 'r', encoding='utf-8') as arquivo:
-    prompt = arquivo.read()
-
-genai.configure(api_key=os.environ["API_KEY"])
-
-model = genai.GenerativeModel(model_name="gemini-1.5-flash")
-response = model.generate_content(f'use os prompt {prompt} para responder {resultado}')
-with open('log.txt', 'a', encoding='utf-8') as log_file:
-    log_file.write(f'Resposta: {response.text}' + '\n')  # Log da resposta
-texto = response.text
-
-#Tranformando texto em audio
-
-tts = gTTS(text=texto, lang='pt', slow=False)
-
-arquivo_mp3 = "texto_para_audio.mp3"
-tts.save(arquivo_mp3)
-
-print(f"Arquivo de áudio salvo como '{arquivo_mp3}'.")
-
-rate = engine.getProperty('rate')
-engine.setProperty('rate', rate - 0)
-
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id)
-
-sleep(3)
-
-engine.say(texto)
-engine.runAndWait()
+    except Exception as e:
+        print(f"Ocorreu um erro: {e}")

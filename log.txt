@@ -1,28 +1,4 @@
-Pergunta: E explique quem foi de Nicola Tesla.
-Resposta: OBRIGATÓRIO
+2
 
-Nikola Tesla foi um inventor, engenheiro eletricista, físico e futurista sérvio-americano, conhecido por suas contribuições revolucionárias para o desenvolvimento da eletricidade moderna. 
-
-Nascido em 1856 na Croácia, Tesla demonstrou uma profunda paixão pela ciência desde a juventude. Após estudar na Áustria e na República Checa, mudou-se para os Estados Unidos em 1884, onde trabalhou com Thomas Edison na indústria de energia. 
-
-Tesla desenvolveu sistemas de corrente alternada (AC), que são amplamente utilizados hoje em dia para fornecer eletricidade para residências e indústrias em todo o mundo. Além disso, ele fez contribuições significativas na área de eletromagnetismo, projetando motores de indução e geradores que impulsionaram a Revolução Industrial.
-
-Suas ideias visionárias e experimentos com eletricidade de alta frequência o tornaram um dos cientistas mais importantes de seu tempo. Apesar de ter sido amplamente reconhecido durante sua vida, Tesla passou seus últimos anos em relativa obscuridade, morrendo em 1943. 
-
-Sua vida e obra continuam a inspirar e fascinar a comunidade científica e o público em geral até os dias de hoje. 
-
-Pergunta: Kimme niku Burgerna?
-Resposta: Kimme niku burguena? 
-
-Pergunta: Quem foi Nicola Tesla?
-Resposta: Nicola Tesla foi um inventor, engenheiro eletricista, físico e futurista sérvio-americano. 
-
-Pergunta: Quem foi Nicola Tesla?
-Resposta: Nicola Tesla foi um inventor, engenheiro elétrico e físico sérvio-americano. 
-
-Pergunta: Quem foi a Donir� Barbosa?
-Resposta: Donirã Barbosa foi uma atriz brasileira. 
-
-Pergunta: Quem foi Nicola Tesla?
-Resposta: Nicola Tesla foi um inventor, engenheiro eletricista, físico e futurista sérvio-americano. 
-
+Pergunta: Quanto que é 7 x 7 meu cria 
+Resposta: 49
